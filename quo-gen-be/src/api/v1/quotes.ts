@@ -11,9 +11,11 @@ router.get("/random", async (req, res) => {
   try {
     const randomQuote = getRandomQuote<Quote>(QUOTES_LIST);
     if(Object.keys(req.query).length !== 0){
-      if(req.query.results){
-        const inputResult = req.query.results
+      const results = req.query.results
+      if(typeof results === "string" ){
+        const inputResult = parseInt(results)
         console.log(inputResult)
+        const getRandomQuotes = getMultipleRandomQuotes<Quote>(QUOTES_LIST, 3);
       }
     }
     res.json({
