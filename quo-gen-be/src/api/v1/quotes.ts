@@ -10,6 +10,7 @@ const router = Router();
 router.get("/random", async (req, res) => {
   try {
     const randomQuote = getRandomQuote<Quote>(QUOTES_LIST);
+    console.log(req);
     res.json({
       quote: randomQuote,
     });
@@ -17,5 +18,7 @@ router.get("/random", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch all quotes" });
   }
 });
+
+
 
 export default router;
