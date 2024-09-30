@@ -23,11 +23,9 @@ router.get("/random", async (req, res) => {
     if (isNaN(Number(results))) return res.status(500).json({error: "String must be a number"})
 
     const inputResult = parseInt(results)
-    console.log({inputResult})
     const quotes = getMultipleRandomQuotes<Quote>(QUOTES_LIST, inputResult);
-    res.status(200).json({
-    quotes
-        })
+    res.status(200).json({quotes})
+
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch all quotes" });
   }
