@@ -1,4 +1,4 @@
-import PageObject from "./app.po";
+import PageObject from "../../src/app.po";
 
 describe("template spec", () => {
   beforeEach(() => {
