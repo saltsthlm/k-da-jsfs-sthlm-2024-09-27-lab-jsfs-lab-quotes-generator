@@ -27,7 +27,10 @@ router.get("/random", async (req, res) => {
     res.status(200).json({quotes})
 
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch all quotes" });
+    if (error instanceof Error) {
+      res.status(500).json({ error: `Failed to fetch all quotes: ${error.message}` });
+    }
+          res.status(500).json({ error: `Failed to fetch all quotes`})
   }
 });
 
