@@ -41,9 +41,13 @@ export const getRandomQuote = async () => {
   const quoteEl = document.querySelector("#quotesContainer") as HTMLDivElement;
   try {
     showLoader(loader);
-    const response = await getRandomQuoteFromApi(currentFetchMode);
+    const { quote, quotes } = await getRandomQuoteFromApi(currentFetchMode);
     quoteEl.innerHTML = "";
-    await renderQuote(quoteEl, response);
+    if (quotes) {
+      quotes.forEach(quote => renderQuote(quoteEl, quote));
+    } else {
+      renderQuote(quoteEl, quote);
+    }    
     hideLoader(loader);
   } catch (error) {
     console.error("Failed to fetch random quote:", error);
