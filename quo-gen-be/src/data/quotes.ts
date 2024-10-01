@@ -11,7 +11,7 @@ export const QUOTES_LIST: Quote[] = [
     text: "Chuck Norris doesn't drink coffee. Coffee drinks Chuck Norris to wake up.",
     user: {
       id: "1",
-      name: "Bugs Bunny",
+      name: "Bugs Bunnny",
     },
   },
   {
