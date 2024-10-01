@@ -6,7 +6,7 @@ import {
 } from "../../utils/quotes-helper";
 
 const router = Router();
-//
+
 
 router.get("/random", async (req, res) => {
   try {
