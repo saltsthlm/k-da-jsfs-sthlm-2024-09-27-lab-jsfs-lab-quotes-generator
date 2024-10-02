@@ -51,9 +51,9 @@ export const getRandomQuote = async () => {
     hideLoader(loader);
   } catch (error) {
     console.error("Failed to fetch random quote:", error);
-    showErrorToast("Failed to fetch");
+    showErrorToast("Failed to fetch random quote");
     hideLoader(loader);
-  }
+  } 
 };
 
 const addListeners = () => {
