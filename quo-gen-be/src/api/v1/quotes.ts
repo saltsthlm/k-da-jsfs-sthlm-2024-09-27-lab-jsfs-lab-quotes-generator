@@ -16,22 +16,22 @@ router.get("/random", async (req, res) => {
         quote: randomQuote,
       });
     }
-    const results = req.query.results
-    if (typeof results === "undefined") return res.status(500).json({error: "Wrong query parameter"})
+    const results = req.query.results;
+    if (typeof results === "undefined") return res.status(500).json({error: "Wrong query parameter"});
 
-    if (typeof results !== "string") return res.status(500).json({error:"Query parameter must be a string"})
+    if (typeof results !== "string") return res.status(500).json({error:"Query parameter must be a string"});
 
-    if (isNaN(Number(results))) return res.status(500).json({error: "String must be a number"})
+    if (isNaN(Number(results))) return res.status(500).json({error: "String must be a number"});
 
-    const inputResult = parseInt(results)
+    const inputResult = parseInt(results);
     const quotes = getMultipleRandomQuotes<Quote>(QUOTES_LIST, inputResult);
-    res.status(200).json({quotes})
+    res.status(200).json({quotes});
 
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: `Failed to fetch all quotes: ${error.message}` });
     }
-          res.status(500).json({ error: `Failed to fetch all quotes`})
+          res.status(500).json({ error: `Failed to fetch all quotes`});
   }
 });
 
