@@ -29,7 +29,7 @@ const showErrorToast = (message: string) => {
   if (!newToast) return;
   newToast.textContent = message;
   setTimeout(() => {
-    newToast.classList.add("fade-in");
+    newToast.classList.add("fade-in"); // Test
   }, 10);
   setTimeout(() => {
     newToast.remove();
